@@ -1,9 +1,23 @@
 @import "tailwindcss";
 
 :root {
-	color-scheme: dark;
-	--background: #020617;
-	--foreground: #f8fafc;
+	--sp-bg: #c5d4f5;
+	--sp-card: #ffffff;
+	--sp-text: #111827;
+	--sp-text-muted: #4b5563;
+	--sp-pink: #e84fc1;
+	--sp-orange: #ff9d4f;
+	--sp-blue: #7b9ef5;
+	--sp-black: #000000;
+	--sp-success: #4ade80;
+	--sp-warning: #fcd34d;
+	--sp-gray: #6b7280;
+	--sp-line: #d9e2f8;
+	--sp-shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+	--sp-shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+	--sp-shadow-button: 0 4px 16px rgba(232, 79, 193, 0.3);
+	--sp-gradient-pink-orange: linear-gradient(135deg, #e84fc1 0%, #ff9d4f 100%);
+	--sp-gradient-pink-blue: linear-gradient(135deg, #e84fc1 0%, #7b9ef5 100%);
 }
 
 * {
@@ -17,11 +31,80 @@ body {
 
 body {
 	margin: 0;
-	background: var(--background);
-	color: var(--foreground);
+	background: radial-gradient(circle at 5% 0%, rgba(232, 79, 193, 0.12), transparent 28%),
+		radial-gradient(circle at 100% 10%, rgba(123, 158, 245, 0.2), transparent 35%),
+		var(--sp-bg);
+	color: var(--sp-text);
 	font-family: var(--font-body), sans-serif;
 }
 
 .font-heading {
 	font-family: var(--font-heading), sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.sp-shell {
+	min-height: 100vh;
+	background: var(--sp-bg);
+	padding: 96px 24px 112px;
+}
+
+.sp-container {
+	margin: 0 auto;
+	width: min(100%, 1280px);
+}
+
+.sp-card {
+	border-radius: 28px;
+	background: var(--sp-card);
+	box-shadow: var(--sp-shadow-card);
+	transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.sp-card:hover {
+	box-shadow: var(--sp-shadow-card-hover);
+	transform: translateY(-2px);
+}
+
+.sp-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	border: 0;
+	border-radius: 20px;
+	padding: 12px 20px;
+	font-weight: 600;
+	transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+	cursor: pointer;
+}
+
+.sp-btn:hover {
+	transform: translateY(-1px);
+	opacity: 0.95;
+}
+
+.sp-btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+	outline: 2px solid var(--sp-pink);
+	outline-offset: 2px;
+}
+
+.sp-gradient-pink-orange {
+	background-image: var(--sp-gradient-pink-orange);
+}
+
+.sp-gradient-pink-blue {
+	background-image: var(--sp-gradient-pink-blue);
+}
+
+@media (max-width: 768px) {
+	.sp-shell {
+		padding: 88px 16px 104px;
+	}
 }

@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Outfit } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "../styles/globals.css";
 
-const headingFont = Space_Grotesk({
+const headingFont = Poppins({
 	variable: "--font-heading",
+	weight: ["600", "700"],
 	subsets: ["latin"],
 });
 
-const bodyFont = Outfit({
+const bodyFont = Inter({
 	variable: "--font-body",
+	weight: ["400", "500", "600"],
 	subsets: ["latin"],
 });
 
