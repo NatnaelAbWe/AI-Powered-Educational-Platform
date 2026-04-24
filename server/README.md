@@ -127,7 +127,8 @@ async def enroll_user(self, user_id: int, course_id: int): # 1. Check if course 
 # 4. Create record in Enrollment table
 # 5. Return EnrollmentResponse
 pass
-Author: [Your Name/Backend Lead]
-Reviewer: Sosena Gossaye
-Status: Draft / Pending Review
 ```
+
+- Author: Natnael Abnew
+- Reviewer: Sosena Gossaye
+- Status: Reviewed
