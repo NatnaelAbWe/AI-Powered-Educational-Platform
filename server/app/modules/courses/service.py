@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 from .models import Course, Lesson, Enrollment, UserProgress
+from .schemas import CourseCreate, LessonCreate  
 
 class CourseService:
     @staticmethod
