@@ -1,17 +1,37 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.config.database import get_db
 from app.modules.auth.deps import get_current_user
-from app.modules.users.models import User
-from .service import CourseService
+from app.modules.users.models import User, UserRole
+from . import schemas, service
 
 router = APIRouter()
 
-@router.get("/{course_id}/roadmap")
+@router.post("/", response_model=schemas.CourseCreate)
+def create_course(
+    course_in: schemas.CourseCreate, 
+    db: Session = Depends(get_db), 
+    current_user: User = Depends(get_current_user)
+):
+    if current_user.role != UserRole.TEACHER:
+        raise HTTPException(status_code=403, detail="Only teachers can create courses")
+    return service.CourseService.create_course(db, course_in, current_user.id)
+
+@router.post("/{course_id}/lessons")
+def add_lesson(
+    course_id: int,
+    lesson_in: schemas.LessonCreate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    if current_user.role != UserRole.TEACHER:
+        raise HTTPException(status_code=403, detail="Only teachers can add lessons")
+    return service.CourseService.add_lesson(db, lesson_in, course_id)
+
+@router.get("/{course_id}/roadmap", response_model=schemas.RoadmapResponse)
 def get_roadmap(
     course_id: int, 
     db: Session = Depends(get_db), 
     current_user: User = Depends(get_current_user)
 ):
-    roadmap = CourseService.get_course_roadmap(db, course_id, current_user.id)
-    return {"success": True, "data": roadmap}
+    return service.CourseService.get_roadmap(db, course_id, current_user.id)
