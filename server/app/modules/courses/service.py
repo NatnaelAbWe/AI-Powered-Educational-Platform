@@ -1,34 +1,50 @@
 from sqlalchemy.orm import Session
-from .models import Lesson, UserProgress
+from .models import Course, Lesson, Enrollment, UserProgress
+from .schemas import CourseCreate, LessonCreate  
 
 class CourseService:
     @staticmethod
-    def get_course_roadmap(db: Session, course_id: int, user_id: int):
+    def create_course(db: Session, course_in: CourseCreate, teacher_id: int):
+        db_course = Course(**course_in.model_dump(), teacher_id=teacher_id)
+        db.add(db_course)
+        db.commit()
+        db.refresh(db_course)
+        return db_course
+
+    @staticmethod
+    def add_lesson(db: Session, lesson_in: LessonCreate, course_id: int):
+        db_lesson = Lesson(**lesson_in.model_dump(), course_id=course_id)
+        db.add(db_lesson)
+        db.commit()
+        db.refresh(db_lesson)
+        return db_lesson
+
+    @staticmethod
+    def get_roadmap(db: Session, course_id: int, user_id: int):
+        course = db.query(Course).filter(Course.id == course_id).first()
         lessons = db.query(Lesson).filter(Lesson.course_id == course_id).order_by(Lesson.order_index).all()
         
-        completed_lessons = db.query(UserProgress.lesson_id).filter(
-            UserProgress.user_id == user_id
-        ).all()
-        completed_ids = {row[0] for row in completed_lessons}
+        # Get user's completed lessons
+        completed = db.query(UserProgress.lesson_id).filter(UserProgress.user_id == user_id).all()
+        completed_ids = {c[0] for c in completed}
 
         roadmap = []
-        can_unlock_next = True 
+        unlocked_found = False
 
         for lesson in lessons:
-            status = "LOCKED"
-            
             if lesson.id in completed_ids:
                 status = "COMPLETED"
-                can_unlock_next = True 
-            elif can_unlock_next:
+            elif not unlocked_found:
                 status = "UNLOCKED"
-                can_unlock_next = False 
+                unlocked_found = True 
+            else:
+                status = "LOCKED"
             
             roadmap.append({
                 "id": lesson.id,
                 "title": lesson.title,
-                "order": lesson.order_index,
+                "order_index": lesson.order_index,
                 "status": status
             })
             
-        return roadmap
+        return {"course_id": course.id, "course_title": course.title, "lessons": roadmap}
