@@ -28,7 +28,7 @@ export default function MobileNav() {
 								href={item.href}
 								className={`flex flex-col items-center justify-center rounded-[20px] px-2 py-2 text-[11px] font-medium transition ${
 									isActive
-										? "bg-white text-[#E84FC1] shadow-[0_4px_14px_rgba(232,79,193,0.2)]"
+										? "bg-white text-[#7B9EF5] shadow-[0_4px_14px_rgba(123,158,245,0.2)]"
 										: "text-[#6B7280]"
 								}`}
 							>

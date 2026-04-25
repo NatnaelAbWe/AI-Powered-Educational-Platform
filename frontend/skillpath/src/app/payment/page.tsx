@@ -30,9 +30,9 @@ export default function PaymentPage() {
 							</div>
 						</label>
 
-						<div className="rounded-[20px] border border-[#e84fc133] bg-[linear-gradient(135deg,rgba(232,79,193,0.12)_0%,rgba(123,158,245,0.1)_100%)] p-4">
+						<div className="rounded-[20px] border border-[#7b9ef533] bg-[linear-gradient(135deg,rgba(123,158,245,0.12)_0%,rgba(75,125,247,0.08)_100%)] p-4">
 							<p className="flex items-center gap-2 font-heading text-base font-bold text-[#111827]">
-								<ShieldCheck size={16} className="text-[#E84FC1]" /> Secure Payment
+								<ShieldCheck size={16} className="text-[#7B9EF5]" /> Secure Payment
 							</p>
 							<p className="mt-1 text-sm text-[#4B5563]">
 								Your payment details are encrypted and safely processed.
@@ -49,13 +49,13 @@ export default function PaymentPage() {
 				<aside className="space-y-6">
 					<section className="sp-card p-6 md:p-8">
 						<div className="flex items-center gap-4">
-							<div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-[linear-gradient(135deg,#E84FC1_0%,#7B9EF5_100%)] text-white">
+							<div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-[linear-gradient(135deg,#7B9EF5_0%,#4B7DF7_100%)] text-white">
 								<Sparkles size={24} />
 							</div>
 							<div>
 								<h2 className="font-heading text-xl font-bold">Frontend Engineering Path</h2>
 								<p className="text-sm text-[#6B7280]">24 lessons • 8 hours</p>
-								<span className="mt-2 inline-flex rounded-full bg-[#e84fc133] px-3 py-1 text-xs font-semibold text-[#E84FC1]">
+								<span className="mt-2 inline-flex rounded-full bg-[#7b9ef533] px-3 py-1 text-xs font-semibold text-[#7B9EF5]">
 									Beginner
 								</span>
 							</div>
@@ -66,7 +66,7 @@ export default function PaymentPage() {
 							<div className="flex justify-between"><span>Tax</span><span>375 ETB</span></div>
 							<div className="flex justify-between text-[#22c55e]"><span>Discount</span><span>-250 ETB</span></div>
 							<div className="border-t border-[#e5e7eb] pt-3" />
-							<div className="flex justify-between font-heading text-xl font-bold text-[#E84FC1]"><span>Total</span><span>2,625 ETB</span></div>
+							<div className="flex justify-between font-heading text-xl font-bold text-[#7B9EF5]"><span>Total</span><span>2,625 ETB</span></div>
 						</div>
 
 						<div className="mt-5 rounded-[20px] border border-[#86efac] bg-[#f0fdf4] p-3">

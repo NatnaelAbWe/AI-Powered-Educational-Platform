@@ -5,7 +5,7 @@
 	--sp-card: #ffffff;
 	--sp-text: #111827;
 	--sp-text-muted: #4b5563;
-	--sp-pink: #e84fc1;
+	--sp-pink: #7b9ef5;
 	--sp-orange: #ff9d4f;
 	--sp-blue: #7b9ef5;
 	--sp-black: #000000;
@@ -15,9 +15,9 @@
 	--sp-line: #d9e2f8;
 	--sp-shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
 	--sp-shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
-	--sp-shadow-button: 0 4px 16px rgba(232, 79, 193, 0.3);
-	--sp-gradient-pink-orange: linear-gradient(135deg, #e84fc1 0%, #ff9d4f 100%);
-	--sp-gradient-pink-blue: linear-gradient(135deg, #e84fc1 0%, #7b9ef5 100%);
+	--sp-shadow-button: 0 4px 16px rgba(123, 158, 245, 0.3);
+	--sp-gradient-pink-orange: linear-gradient(135deg, #7b9ef5 0%, #ff9d4f 100%);
+	--sp-gradient-pink-blue: linear-gradient(135deg, #7b9ef5 0%, #4b7df7 100%);
 }
 
 * {
@@ -31,7 +31,7 @@ body {
 
 body {
 	margin: 0;
-	background: radial-gradient(circle at 5% 0%, rgba(232, 79, 193, 0.12), transparent 28%),
+	background: radial-gradient(circle at 5% 0%, rgba(123, 158, 245, 0.14), transparent 28%),
 		radial-gradient(circle at 100% 10%, rgba(123, 158, 245, 0.2), transparent 35%),
 		var(--sp-bg);
 	color: var(--sp-text);
@@ -91,7 +91,7 @@ a {
 .sp-btn:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-	outline: 2px solid var(--sp-pink);
+	outline: 2px solid var(--sp-blue);
 	outline-offset: 2px;
 }
 

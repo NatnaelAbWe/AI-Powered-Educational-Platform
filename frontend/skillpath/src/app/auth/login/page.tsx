@@ -20,7 +20,7 @@ export default function LoginPage() {
 				<form className="mt-7 space-y-4">
 					<label className="block text-sm font-medium text-[#111827]">
 						Email Address
-						<div className="mt-2 flex items-center gap-3 rounded-[20px] border border-transparent bg-[#F9FAFB] px-4 py-3 transition focus-within:border-[#E84FC1]">
+						<div className="mt-2 flex items-center gap-3 rounded-[20px] border border-transparent bg-[#F9FAFB] px-4 py-3 transition focus-within:border-[#7B9EF5]">
 							<Mail size={16} className="text-[#6B7280]" />
 							<input type="email" placeholder="you@example.com" className="w-full bg-transparent text-sm outline-none" />
 						</div>
@@ -28,7 +28,7 @@ export default function LoginPage() {
 
 					<label className="block text-sm font-medium text-[#111827]">
 						Password
-						<div className="mt-2 flex items-center gap-3 rounded-[20px] border border-transparent bg-[#F9FAFB] px-4 py-3 transition focus-within:border-[#E84FC1]">
+						<div className="mt-2 flex items-center gap-3 rounded-[20px] border border-transparent bg-[#F9FAFB] px-4 py-3 transition focus-within:border-[#7B9EF5]">
 							<Lock size={16} className="text-[#6B7280]" />
 							<input type="password" placeholder="Enter your password" className="w-full bg-transparent text-sm outline-none" />
 						</div>
@@ -36,10 +36,10 @@ export default function LoginPage() {
 
 					<div className="flex items-center justify-between text-sm">
 						<label className="flex items-center gap-2 text-[#4B5563]">
-							<input type="checkbox" className="h-4 w-4 accent-[#E84FC1]" />
+							<input type="checkbox" className="h-4 w-4 accent-[#7B9EF5]" />
 							Remember me
 						</label>
-						<a href="#" className="font-medium text-[#E84FC1]">
+						<a href="#" className="font-medium text-[#7B9EF5]">
 							Forgot password?
 						</a>
 					</div>
@@ -62,7 +62,7 @@ export default function LoginPage() {
 
 				<p className="mt-6 text-center text-sm text-[#4B5563]">
 					Don&apos;t have an account?{" "}
-					<Link href="/auth/register" className="font-semibold text-[#E84FC1]">
+					<Link href="/auth/register" className="font-semibold text-[#7B9EF5]">
 						Sign up for free
 					</Link>
 				</p>

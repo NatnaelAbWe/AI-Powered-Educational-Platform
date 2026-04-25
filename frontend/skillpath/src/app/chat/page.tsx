@@ -11,7 +11,7 @@ export default function ChatPage() {
 							<button type="button" className="rounded-full bg-[#f3f4f6] p-2 text-[#4B5563]">
 								<ArrowLeft size={16} />
 							</button>
-							<div className="h-10 w-10 rounded-full bg-[linear-gradient(135deg,#E84FC1_0%,#7B9EF5_100%)]" />
+							<div className="h-10 w-10 rounded-full bg-[linear-gradient(135deg,#7B9EF5_0%,#4B7DF7_100%)]" />
 							<div>
 								<p className="font-heading text-base font-bold text-[#111827]">Marta Solomon</p>
 								<p className="text-xs text-[#4ADE80]">Online</p>
@@ -34,7 +34,7 @@ export default function ChatPage() {
 						<p className="mx-auto w-fit rounded-full bg-[#eef2ff] px-3 py-1 text-xs text-[#6B7280]">Today</p>
 
 						<div className="flex max-w-[75%] gap-3">
-							<div className="h-9 w-9 rounded-full bg-[linear-gradient(135deg,#E84FC1_0%,#7B9EF5_100%)]" />
+							<div className="h-9 w-9 rounded-full bg-[linear-gradient(135deg,#7B9EF5_0%,#4B7DF7_100%)]" />
 							<div>
 								<div className="rounded-2xl bg-white p-3 text-sm text-[#111827] shadow-sm">
 									Could you review my CSS Grid assignment before tomorrow?
@@ -44,7 +44,7 @@ export default function ChatPage() {
 						</div>
 
 						<div className="ml-auto max-w-[75%] text-right">
-							<div className="inline-block rounded-2xl bg-[#E84FC1] p-3 text-left text-sm text-white">
+							<div className="inline-block rounded-2xl bg-[#7B9EF5] p-3 text-left text-sm text-white">
 								Absolutely, I&apos;ll send feedback plus a cleaner layout strategy.
 							</div>
 							<p className="mt-1 text-xs text-[#9ca3af]">10:44 AM</p>
@@ -61,7 +61,7 @@ export default function ChatPage() {
 								placeholder="Type your message..."
 								className="w-full rounded-full bg-[#f3f4f6] px-4 py-3 text-sm outline-none"
 							/>
-							<button type="button" className="sp-btn bg-[#E84FC1] px-4 text-white">
+							<button type="button" className="sp-btn bg-[#7B9EF5] px-4 text-white">
 								<Send size={16} />
 							</button>
 						</div>
@@ -76,7 +76,7 @@ export default function ChatPage() {
 					</div>
 
 					<div className="mt-4 text-center">
-						<div className="mx-auto h-20 w-20 rounded-full bg-[linear-gradient(135deg,#E84FC1_0%,#7B9EF5_100%)]" />
+						<div className="mx-auto h-20 w-20 rounded-full bg-[linear-gradient(135deg,#7B9EF5_0%,#4B7DF7_100%)]" />
 						<p className="mt-4 font-heading text-xl font-bold">Marta Solomon</p>
 						<p className="text-sm text-[#6B7280]">Mentor</p>
 						<select className="mt-3 w-full rounded-[20px] border border-[#e5e7eb] bg-[#f9fafb] px-3 py-2 text-sm text-[#4B5563] outline-none">

@@ -3,7 +3,7 @@ import MobileNav from "@/src/components/layout/MobileNav";
 
 const stats = [
 	{ label: "Total Students", value: "1,240", color: "bg-[#7B9EF5]", icon: Users },
-	{ label: "Active Courses", value: "12", color: "bg-[#E84FC1]", icon: BarChart3 },
+	{ label: "Active Courses", value: "12", color: "bg-[#7B9EF5]", icon: BarChart3 },
 	{ label: "Total Revenue", value: "148,500 ETB", color: "bg-[#FF9D4F]", icon: Wallet },
 	{ label: "Messages", value: "34", color: "bg-black", icon: MessageCircle },
 ];
@@ -43,7 +43,7 @@ export default function TeacherDashboardPage() {
 				<section className="sp-card p-6 md:p-8">
 					<div className="border-b border-[#e5e7eb] pb-2">
 						<div className="flex gap-5 text-sm font-medium">
-							<button type="button" className="border-b-2 border-[#E84FC1] pb-2 text-[#E84FC1]">
+							<button type="button" className="border-b-2 border-[#7B9EF5] pb-2 text-[#7B9EF5]">
 								My Courses
 							</button>
 							<button type="button" className="pb-2 text-[#6B7280]">
@@ -62,7 +62,7 @@ export default function TeacherDashboardPage() {
 							return (
 								<div key={course.title} className="flex flex-wrap items-center justify-between gap-4 rounded-[20px] bg-[#f3f4f6] p-4 transition hover:bg-[#e5e7eb]">
 									<div className="flex min-w-0 items-center gap-3">
-										<div className="h-16 w-16 rounded-[20px] bg-[linear-gradient(135deg,#E84FC1_0%,#7B9EF5_100%)]" />
+										<div className="h-16 w-16 rounded-[20px] bg-[linear-gradient(135deg,#7B9EF5_0%,#4B7DF7_100%)]" />
 										<div>
 											<p className="font-heading text-base font-bold text-[#111827]">{course.title}</p>
 											<p className="text-sm text-[#6B7280]">{course.meta}</p>

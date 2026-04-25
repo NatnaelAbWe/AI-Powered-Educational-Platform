@@ -11,8 +11,8 @@ const roadmapSteps = [
 ] as const;
 
 const stateStyles = {
-	completed: "bg-[#4ADE80] text-white",
-	current: "scale-110 bg-[#E84FC1] text-white shadow-[0_0_0_8px_rgba(232,79,193,0.18)]",
+	completed: "bg-[#FF9D4F] text-white",
+	current: "scale-110 bg-[#7B9EF5] text-white shadow-[0_0_0_8px_rgba(123,158,245,0.18)]",
 	available: "border border-[#7B9EF5] bg-white text-[#111827]",
 	locked: "bg-[#E5E7EB] text-[#6B7280]",
 };
@@ -28,17 +28,17 @@ export default function RoadmapPage() {
 							<p className="mt-2 text-[#4B5563]">Master modern UI development from zero to production</p>
 						</div>
 						<div className="text-right">
-							<p className="font-heading text-4xl font-bold text-[#E84FC1] md:text-[42px]">58%</p>
+							<p className="font-heading text-4xl font-bold text-[#7B9EF5] md:text-[42px]">58%</p>
 							<p className="text-sm text-[#6B7280]">Complete</p>
 						</div>
 					</div>
 					<div className="mt-6 h-3 rounded-full bg-[#f0f3fc]">
-						<div className="h-3 w-[58%] rounded-full bg-[linear-gradient(135deg,#E84FC1_0%,#FF9D4F_100%)]" />
+						<div className="h-3 w-[58%] rounded-full bg-[linear-gradient(135deg,#7B9EF5_0%,#FF9D4F_100%)]" />
 					</div>
 				</section>
 
 				<section className="relative px-1 py-2 md:px-6">
-					<div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 rounded-full bg-[linear-gradient(180deg,#E84FC1_0%,#7B9EF5_50%,#FF9D4F_100%)]" />
+					<div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 rounded-full bg-[linear-gradient(180deg,#7B9EF5_0%,#4B7DF7_50%,#FF9D4F_100%)]" />
 					<div className="space-y-7">
 						{roadmapSteps.map((step, index) => {
 							const left = index % 2 === 0;
