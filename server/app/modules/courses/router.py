@@ -7,7 +7,7 @@ from . import schemas, service
 
 router = APIRouter()
 
-@router.post("/", response_model=schemas.CourseCreate)
+@router.post("/", response_model=schemas.CourseResponse)
 def create_course(
     course_in: schemas.CourseCreate, 
     db: Session = Depends(get_db), 
@@ -42,4 +42,4 @@ def complete_lesson(
     db: Session = Depends(get_db), 
     current_user: User = Depends(get_current_user)
 ):
-    return CourseService.mark_lesson_completed(db, lesson_id, current_user.id)
+    return service.CourseService.mark_lesson_completed(db, lesson_id, current_user.id)
