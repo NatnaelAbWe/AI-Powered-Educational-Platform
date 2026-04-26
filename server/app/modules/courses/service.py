@@ -48,3 +48,16 @@ class CourseService:
             })
             
         return {"course_id": course.id, "course_title": course.title, "lessons": roadmap}
+    
+    @staticmethod
+    def mark_lesson_completed(db: Session, lesson_id: int, user_id: int):
+        existing = db.query(UserProgress).filter(
+            UserProgress.user_id == user_id, 
+            UserProgress.lesson_id == lesson_id
+        ).first()
+        
+        if not existing:
+            new_progress = UserProgress(user_id=user_id, lesson_id=lesson_id, is_completed=True)
+            db.add(new_progress)
+            db.commit()
+        return {"message": "Lesson marked as completed"}
