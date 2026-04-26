@@ -35,3 +35,11 @@ def get_roadmap(
     current_user: User = Depends(get_current_user)
 ):
     return service.CourseService.get_roadmap(db, course_id, current_user.id)
+
+@router.post("/lessons/{lesson_id}/complete")
+def complete_lesson(
+    lesson_id: int, 
+    db: Session = Depends(get_db), 
+    current_user: User = Depends(get_current_user)
+):
+    return CourseService.mark_lesson_completed(db, lesson_id, current_user.id)
