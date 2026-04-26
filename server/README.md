@@ -1,4 +1,33 @@
+# SkillPath AI – Backend API
+
+---
+
+- SkillPath is a modern learning platform that uses AI to guide students through structured technical roadmaps. This backend, built with FastAPI, manages identity, roadmap progression logic, and AI-driven learning assistance.
+
+- [Live API URL:](https://skillpath-api-kr9c.onrender.com)
+- - [Live API URL:](https://skillpath-api-kr9c.onrender.com)
+
+# System Design
+
+---
+
+- The system is designed as a Decoupled Client-Server Architecture.
+- Identity Layer: Uses JWT (JSON Web Tokens) for stateless authentication. Role-Based Access Control (RBAC) ensures that only Teachers can create content, while Students can track personal progress.
+- Roadmap Engine: Unlike traditional course cards, this system treats lessons as nodes in a sequence. The backend calculates the state of each node (LOCKED, UNLOCKED, COMPLETED) in real-time by cross-referencing lesson order indexes with the user's completion history.
+- Intelligence Layer: Integrated with Grok-3/Llama-3 via high-speed inference APIs. The system processes technical prompts to provide contextual explanations and code debugging.
+- Data Persistence: A relational PostgreSQL database (hosted on Neon.tech) manages complex relationships between users, courses, and progress tracking.
+
 # Backend Architecture: SkillPath
+
+---
+
+## Architecture Decisions
+
+- FastAPI Framework: Chosen for its native asynchronous support (essential for AI processing and WebSockets) and automatic Swagger documentation.
+- Feature-First Modular Structure: We opted for a domain-based folder structure (auth, courses, ai) rather than a traditional MVC structure. This ensures that as the platform adds features (like Chat or Video), the code remains maintainable and scalable.
+- Database Migrations (Alembic): We use Alembic to ensure the cloud database (Neon) stays perfectly in sync with our local models without manual SQL execution.
+- Pydantic V2: Used for strict data validation and serialization. Every request and response is validated against a schema to prevent data corruption.
+- Specialized Port 6543 (Cloud DB): We decided to use Supabase/Neon's connection pooler port to ensure maximum compatibility with IPv4 networks common in Ethiopia.
 
 ## 1. Project Structure
 
@@ -128,6 +157,52 @@ async def enroll_user(self, user_id: int, course_id: int): # 1. Check if course 
 # 5. Return EnrollmentResponse
 pass
 ```
+
+# How to Run the Project
+
+---
+
+- Prerequisites
+  - Python 3.10+
+  - PostgreSQL (or a Neon.tech account)
+  - Groq or xAI API Key
+
+## 1. Clone and Install
+
+```Bash
+git clone https://github.com/NatnaelAbWe/AI-Powered-Educational-Platform.git
+cd server
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+## 2. Environment Setup
+
+- Create a .env file in the server/ directory:
+
+```bash
+DATABASE_URL="your_postgresql_url"
+SECRET_KEY="your_random_secret_string"
+ALGORITHM="HS256"
+GROQ_API_KEY="your_ai_key"
+```
+
+## 3. Run Database Migrations
+
+- Synchronize your database schema:
+
+```Bash
+alembic upgrade head
+```
+
+## 4. Start the Server
+
+```Bash
+uvicorn app.main:app --reload
+```
+
+- The API will be available at http://127.0.0.1:8000. Visit /docs for the interactive API documentation.
 
 - Author: Natnael Abnew
 - Reviewer: Sosena Gossaye
