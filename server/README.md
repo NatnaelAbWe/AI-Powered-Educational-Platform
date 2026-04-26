@@ -5,7 +5,7 @@
 - SkillPath is a modern learning platform that uses AI to guide students through structured technical roadmaps. This backend, built with FastAPI, manages identity, roadmap progression logic, and AI-driven learning assistance.
 
 - [Live API URL:](https://skillpath-api-kr9c.onrender.com)
-- - [Live API URL:](https://skillpath-api-kr9c.onrender.com)
+- [Live API URL:](https://skillpath-api-kr9c.onrender.com)
 
 # System Design
 
@@ -203,6 +203,58 @@ uvicorn app.main:app --reload
 ```
 
 - The API will be available at http://127.0.0.1:8000. Visit /docs for the interactive API documentation.
+
+---
+
+## Domain Mapping & Logic
+
+| Domain       | Module  | Responsibility                                                                   |
+| ------------ | ------- | -------------------------------------------------------------------------------- |
+| Identity     | auth    | Password hashing, JWT generation, Role management                                |
+| Learning     | courses | Roadmap logic: calculates if a lesson is **LOCKED** based on previous completion |
+| Intelligence | ai      | Contextual AI help for concepts and code fixes                                   |
+| Profiles     | users   | User metadata management and RBAC permission checks                              |
+
+## API Endpoints Reference
+
+### Documentation & Base
+
+| Action          | Method | URL                                             |
+| --------------- | ------ | ----------------------------------------------- |
+| Swagger UI      | GET    | https://skillpath-api-kr9c.onrender.com/docs    |
+| DB Health Check | GET    | https://skillpath-api-kr9c.onrender.com/test-db |
+| API Home        | GET    | https://skillpath-api-kr9c.onrender.com/        |
+
+---
+
+### Authentication Module
+
+| Action         | Method | URL                                                   |
+| -------------- | ------ | ----------------------------------------------------- |
+| Register User  | POST   | https://skillpath-api-kr9c.onrender.com/auth/register |
+| Login (OAuth2) | POST   | https://skillpath-api-kr9c.onrender.com/auth/login    |
+| My Profile     | GET    | https://skillpath-api-kr9c.onrender.com/me            |
+
+---
+
+### Course & Roadmap Module
+
+| Action          | Method | URL                                                                          |
+| --------------- | ------ | ---------------------------------------------------------------------------- |
+| Create Course   | POST   | https://skillpath-api-kr9c.onrender.com/courses/                             |
+| Add Lesson      | POST   | https://skillpath-api-kr9c.onrender.com/courses/{course_id}/lessons          |
+| Get Roadmap     | GET    | https://skillpath-api-kr9c.onrender.com/courses/{course_id}/roadmap          |
+| Complete Lesson | POST   | https://skillpath-api-kr9c.onrender.com/courses/lessons/{lesson_id}/complete |
+
+---
+
+### AI Intelligence Module (Requires Auth)
+
+| Action           | Method | URL                                                       |
+| ---------------- | ------ | --------------------------------------------------------- |
+| Explain Concept  | POST   | https://skillpath-api-kr9c.onrender.com/ai/explain        |
+| Fix Code Snippet | POST   | https://skillpath-api-kr9c.onrender.com/ai/fix-code       |
+| Smart Path       | POST   | https://skillpath-api-kr9c.onrender.com/ai/recommend-path |
 
 - Author: Natnael Abnew
 - Reviewer: Sosena Gossaye
