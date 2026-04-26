@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from .models import Course, Lesson, Enrollment, UserProgress
 from .schemas import CourseCreate, LessonCreate  
+from fastapi import HTTPException  
 
 class CourseService:
     @staticmethod
@@ -51,6 +52,10 @@ class CourseService:
     
     @staticmethod
     def mark_lesson_completed(db: Session, lesson_id: int, user_id: int):
+        lesson = db.query(Lesson).filter(Lesson.id == lesson_id).first()
+        if not lesson:
+            raise HTTPException(status_code=404, detail="Lesson not found")
+
         existing = db.query(UserProgress).filter(
             UserProgress.user_id == user_id, 
             UserProgress.lesson_id == lesson_id

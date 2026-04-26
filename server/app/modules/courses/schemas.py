@@ -26,3 +26,14 @@ class RoadmapResponse(BaseModel):
     course_id: int
     course_title: str
     lessons: List[LessonResponse]
+
+class CourseResponse(BaseModel):
+    id: int
+    title: str
+    description: str
+    is_premium: bool
+    price: float
+    teacher_id: int
+
+class Config:
+    from_attributes = True
