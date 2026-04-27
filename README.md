@@ -8,6 +8,17 @@
 
 This document defines the functional and non-functional requirements for SkillPath, a web-based platform designed to help users learn technical skills through structured roadmaps and AI-powered assistance. The platform focuses on guided progression, hands-on practice, and intelligent feedback.
 
+### Live link for the frontend
+
+---
+
+### Live link for the backend
+
+---
+
+- [Live API URL:](https://skillpath-api-kr9c.onrender.com)
+- [Live API URL with Swagger UI. :](https://skillpath-api-kr9c.onrender.com/docs)
+
 ### Scope
 
 - In Scope:
